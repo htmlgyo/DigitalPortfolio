@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/C-logo.jpg">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Personal Website | Portfolio</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__content">
+        
+        <label for="check" class="checkbox">
+          <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" />
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="reading.html">Reading Process Worksheet</a></li>
+          <li><a href="reader.html">Reader Response</a></li>
+          <li><a href="Icare.html">ICARE Activities</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section id="home">
+    <div class="banban">
+      <video src="./assets/vid.mp4" type="video/mp4" autoplay muted loop></video>
+      <div class="custom-section">
+          <div class="custom-container">
+              <div class="custom-content">
+           
+                  <h1 class="custom-title">
+                      <span>Digital Reading Portfolio</span>
+                  </h1>
+                  <div class="custom-buttons">
+                    <button class="custom-about" onclick="smoothScroll('#about')">Read more about me!</button>
+                   
+                </div>
+              </div>
+              </div>
+          </div>
+      </section>
+  </div>
+
+  <!-- about page -->
+
+  <section id="about">
+    <div class="section__container">
+        <div class="content">
+            <p class="subtitle">HELLO</p>
+            <h1 class="title">
+                I'm <span>Balahadia,<br />Geoffrie</span>
+            </h1>
+            <p class="description" style="text-align: justify;">
+                Welcome to my personal website | portfolio. I'm Geo, a dedicated and creative web developer with a passion for designing responsive, visually appealing, and user-friendly websites. I strive to enhance user experiences through clean code and innovative solutions. My goal is to grow into a successful software engineer. This website serves as a showcase of my work and a platform for my learning journey.            </p>
+            <div class="action__btns">
+                           
+                <button class="portfolio" onclick="scrollToLocations()">Images</button>
+            </div>
+        </div>
+        <div class="image">
+            <img src="assets/picq.jpg" alt="profile" />
+        </div>
+    </div>
+</section>
+<div class="banner">
+    <img src="assets/newone.jpg" alt="Background Image">
+    <div class="banner">
+        <img src="assets/newone.jpg" alt="Background Image">
+      <section class="locations" id="locations">
+        <div class="package-title">
+            <h2 class="souvenir-title" <center><span style="font-family: 'Didot', serif; font-size: 48px; font-weight: bold; text-align: center; margin: 1% 0; text-transform: uppercase; letter-spacing: 3px; color: rgba(255, 255, 255, 0.863);">Images </span></h2></center>
+        <div class="location-content">
+            <a  target="_blank">
+                <div class="col-content">
+                    <img src="./assets/icare.jpeg" alt="">
+                    <h5>Game 1</h5>
+                    <p></p>
+                </div>
+            </a>
+      
+            <a  target="_blank">
+                <div class="col-content">
+                    <img src="./assets/1.jpg" alt="">
+                    <h5>Game 2</h5>
+                    <p></p>
+                </div>
+            </a>
+      
+            <a  target="_blank">
+                <div class="col-content">
+                  <img src="./assets/book.jpeg" alt="">
+                  <h5>Article 1</h5>
+                    <p></p>
+                </div>
+            </a>
+      
+            <a target="_blank">
+                <div class="col-content">
+                  <img src="./assets/book2.jpeg" alt="">
+                    <h5> Article 2</h5>
+                    <p></p>
+                </div>
+            </a>
+            <a target="_blank">
+                <div class="col-content">
+                  <img src="./assets/icarepaper.jpg" alt="">
+                    <h5> ICARE</h5>
+                    <p></p>
+                </div>
+            </a>
+            <a target="_blank">
+                <div class="col-content">
+                  <img src="./assets/icarepaper1.jpg" alt="">
+                    <h5> ICARE</h5>
+                    <p></p>
+                </div>
+            </a>
+        </div>
+              
+      </section>
+
+  
+  <script>
+
+
+function scrollToLocations() {
+    const locations = document.getElementById('locations');
+    if (locations) {
+        locations.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+    // Smooth scrolling function for both navigation links and buttons
+    function smoothScroll(target) {
+        const section = document.querySelector(target);
+        if (section) {
+            section.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Apply smooth scrolling to all anchor links in the navigation menu
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default jump behavior
+            smoothScroll(this.getAttribute('href'));
+        });
+    });
+
+    // Smooth scroll to top when "Home" is clicked
+    document.querySelector('a[href="#home"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Scroll-to-home button functionality
+    const scrollToHomeButton = document.getElementById('scrollToHome');
+
+    if (scrollToHomeButton) {
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            scrollToHomeButton.style.display = scrollTop > 100 ? 'block' : 'none';
+        }); 
+
+        scrollToHomeButton.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#aaa';
+        });
+
+        scrollToHomeButton.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '#ccc';
+        });
+
+        scrollToHomeButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+</script>
+</body>
+</html>
